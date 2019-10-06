@@ -76,8 +76,8 @@ console.log('each関数の戻り値', returnValue1);
 function map(array, callback) {
   const newArray = [];
   each(array, function (value, index) {
-    let newValue = callback(value, index);
-    newArray[index] = newValue;
+    const newValue = callback(value, index);
+    newArray.push(newValue);
   })
   return newArray;
 }
@@ -134,7 +134,7 @@ function filter(array, callback) {
 }
 
 // ここでfilter関数の挙動を確認する
-array3 = [1, 2, 3, 4, 5]
+const array3 = [1, 2, 3, 4, 5]
 
 const returnValue3 = filter(array3, function (value, index) {
   console.log(`filter関数のコールバック関数内　index: ${index} 値: ${value}`);
